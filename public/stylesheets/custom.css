@@ -19,6 +19,15 @@ ul.navigation {
 	margin: 0px;
 }
 
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: green;
+}
+
 .navigation {
 	float: right;
 }
