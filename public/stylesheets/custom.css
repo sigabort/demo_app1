@@ -1,0 +1,47 @@
+.container {
+	width: 750px;
+}
+
+body {
+	background: #D8D8D8;
+}
+
+#header img {
+	background: #FFFFFF;
+}
+
+ul.navigation {
+	margin: 0px;
+}
+
+.navigation {
+	float: right;
+}
+.navigation li {
+	list-style-type: none;
+	display: inline-block;
+	padding: 0.2em 0;
+}
+
+.navigation li a {
+	padding: 0 5px;
+	font-weight: bold;
+}
+
+.signup_button {
+	background:#67f;
+	color: #fff;
+	width: 190px;
+	display: block;
+	font-weight: bold;
+	padding: 20px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.round {
+	-moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+}
