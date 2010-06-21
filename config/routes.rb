@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :microposts
+  map.resources :users
 
   map.contact '/contact', :controller => 'pages', :action => 'contact'
   map.about '/about', :controller => 'pages', :action => 'about'

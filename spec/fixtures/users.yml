@@ -1,11 +1,11 @@
 # == Schema Information
 # Schema version: 20100618055959
 #
-# Table name: microposts
+# Table name: users
 #
 #  id         :integer         not null, primary key
-#  content    :string(255)
-#  user_id    :integer
+#  name       :string(255)
+#  email      :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #
@@ -13,9 +13,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  content: MyString
-  user_id: 1
+  name: MyString
+  email: MyString
 
 two:
-  content: MyString
-  user_id: 1
+  name: MyString
+  email: MyString
