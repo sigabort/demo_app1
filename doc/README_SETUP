@@ -1,0 +1,13 @@
+
+
+
+#Install Factory girl
+sudo gem install factory_girl -v 1.2.3
+#Include Factory Girl gem into the config environment
+#Add following line in config/environments/test.rb
+config.gem 'factory_girl'
+
+
+#Install plugin for gravatars
+script/plugin install svn://rubyforge.org/var/svn/gravatarplugin/plugins/gravatar
+
