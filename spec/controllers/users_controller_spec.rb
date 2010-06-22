@@ -50,4 +50,57 @@ describe UsersController do
     
   end
   
+  
+  describe "POST 'create'" do
+    
+    describe "failure" do
+      before (:each) do
+        @attrs = {:name => "", :email => "", :password => "", :password_confirmation => ""}
+        @user = Factory.build(:user, @attrs)
+        User.stub!(:new).and_return(@user)
+        @user.should_receive(:save).and_return(false)
+      end
+      
+      it "should have right title" do
+        post :create, :user => @atrrs
+        response.should have_tag("title", /sign up/i)
+      end
+
+      it "should render 'new' page" do
+        post :create, :user => @atrrs
+        response.should render_template('new')
+      end
+
+      it "should render empty passwords" do
+        post :create, :user => @attrs.merge(:password => rand_str)
+        response.should render_template('new')
+        response.should have_tag("input[type=?][value=?]", "password" "")
+      end
+
+    end
+    
+    describe "success" do
+      before (:each) do
+        str = rand_str
+        @attrs = {:name => str, :email => str, :password => str, :password_confirmation => str}
+        @user = Factory(:user, @attrs)
+        User.stub!(:new).and_return(@user)
+        @user.should_receive(:save).and_return(true)
+      end
+
+      it "should show user page after successful signup" do
+        post :create, :user => @attrs
+        response.should redirect_to(user_path(@user))
+      end
+
+      it "should show flash message after successful signup" do
+        post :create, :user => @attrs
+        response.should redirect_to(user_path(@user))
+        flash[:success].should =~ /Welcome to demo App/i
+      end
+      
+    end
+    
+  end
+  
 end

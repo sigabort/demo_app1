@@ -71,3 +71,38 @@ a:hover {
 #footer .navigation {
 	float: none;
 }
+
+div.field, div.actions {
+	margin-bottom: 10px;
+}
+
+.fieldWithErrors {
+	padding: 2px;
+	background-color: red;
+	display: table;
+}
+
+.fieldWithErrors label {
+	color: #fff;
+}
+
+#errorExplanation {
+	border: solid red 2px;
+	padding: 2px;
+	margin-bottom :10px;
+	width: 490px;
+}
+
+#errorExplanation h2 {
+	text-align: left;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+#errorExplanation p {
+	font-size: 12px;
+}
+
+#errorExplanation ul li {
+	font-size: 12px;
+}

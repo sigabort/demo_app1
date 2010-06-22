@@ -1,5 +1,7 @@
 
-
+#Install webrat for integration tests. We need launchy too to spawn the browser (when webrat encounters exceptions)
+sudo gem install webrat -v 0.7.0
+sudo gem instal launchy -v 0.3.5
 
 #Install Factory girl
 sudo gem install factory_girl -v 1.2.3
@@ -11,3 +13,13 @@ config.gem 'factory_girl'
 #Install plugin for gravatars
 script/plugin install svn://rubyforge.org/var/svn/gravatarplugin/plugins/gravatar
 
+
+ -----------------
+|    Commands     |
+ -----------------
+ 
+ #Generate integration specs for users
+ script/generate integration_spec users
+ 
+ #Generate migration script. Add password field to users table
+ scrip/generate migration add_password_to_users password:string

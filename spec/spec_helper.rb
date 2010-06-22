@@ -56,3 +56,9 @@ require "webrat"
 Webrat.configure do |config|
   config.mode = :rails
 end
+
+
+#Definition to generate random strings of required length
+def rand_str(length=20)
+  (('a'..'z').to_a + ('A'..'Z').to_a + (0..9).to_a).shuffle[0..length].join
+end
