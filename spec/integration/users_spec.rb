@@ -17,17 +17,20 @@ describe "Users" do
 
   describe "sign up success" do
     it "should create a new user" do
-      lambda do
-        visit signup_path
-        str = rand_str
-        fill_in "Name", :with => str
-        fill_in "Email", :with => str
-        fill_in "Password", :with => str
-        fill_in "Confirmation", :with => str
-        click_button
-        response.should render_template('users/show')
-        response.should_not have_tag("div#errorExplanation")
-      end.should change(User, :count).by(1)
+      count = 10
+      count.downto 1 do
+        lambda do
+          visit signup_path
+          str = rand_str
+          ["Name", "Email", "Password", "Confirmation"].each do |label|
+            fill_in label, :with => str
+          end
+          click_button
+          response.should render_template('users/show')
+          response.should_not have_tag("div#errorExplanation")
+        end.should change(User, :count).by(1)
+      end
+      User.count.should eql(count)
     end
         
     

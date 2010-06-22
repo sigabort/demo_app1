@@ -1,7 +1,16 @@
+#Install rspec for tests
+sudo gem install rspec-rails
+
 
 #Install webrat for integration tests. We need launchy too to spawn the browser (when webrat encounters exceptions)
 sudo gem install webrat -v 0.7.0
 sudo gem instal launchy -v 0.3.5
+
+#webrat is not compatible with rails 3. We need to install its replacement: Capybara.
+sudo gem install capybara
+#On OSX, we may need libffi 
+sudo port install libffi
+
 
 #Install Factory girl
 sudo gem install factory_girl -v 1.2.3
