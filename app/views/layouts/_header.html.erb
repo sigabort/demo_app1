@@ -2,6 +2,12 @@
 	<%= link_to logo, root_path %>
 	<ul class="navigation round">
 		<li> <%= link_to "Home", root_path %> </li>
-		<li> <%= link_to "Sign in", '#' %> </li>
+
+		<% if signed_in? %>
+		  <li> <%= link_to "Sign out", signout_path, :method => :delete %> </li>
+		<% else %>
+		  <li> <%= link_to "Sign in", signin_path %> </li>
+		<% end %>
+		
 	</ul> <%# end of class="navigation round" %>
 </div> <%# end of div class="header" %>

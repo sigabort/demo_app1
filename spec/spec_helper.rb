@@ -4,6 +4,11 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path(File.join(File.dirname(__FILE__),'..','config','environment'))
 require 'spec/autorun'
 require 'spec/rails'
+require "webrat"
+
+Webrat.configure do |config|
+  config.mode = :rails
+end
 
 # Uncomment the next line to use webrat's matchers
 #require 'webrat/integrations/rspec-rails'
@@ -51,14 +56,16 @@ Spec::Runner.configure do |config|
   # == Notes
   #
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
-end
-require "webrat"
-Webrat.configure do |config|
-  config.mode = :rails
-end
 
 
-#Definition to generate random strings of required length
-def rand_str(length=20)
-  (('a'..'z').to_a + ('A'..'Z').to_a + (0..9).to_a).shuffle[0..length].join
+
+  #Definition to generate random strings of required length
+  def rand_str(length=20)
+    (('a'..'z').to_a + ('A'..'Z').to_a + (0..9).to_a).shuffle[0..length].join
+  end
+
+  def test_sign_in(user)
+    controller.current_user = user
+  end
+  
 end

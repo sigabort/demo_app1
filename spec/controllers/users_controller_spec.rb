@@ -99,7 +99,14 @@ describe UsersController do
         flash[:success].should =~ /Welcome to demo App/i
       end
       
-    end
+      it "new users should be signed in by default" do
+        post :create, :user =>@attrs
+        response.should redirect_to(user_path(@user))
+        controller.current_user.should == @user
+        controller.should be_signed_in
+      end
+      
+    end #describe success do
     
   end
   

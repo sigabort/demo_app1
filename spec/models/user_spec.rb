@@ -101,5 +101,26 @@ describe User do
 
   end
   
+  describe "remember me" do
+    before(:each) do
+      @user = User.create!(@attributes)
+    end
+    
+    it "should respond to remember_me! method" do
+      @user.should respond_to(:remember_me!)
+    end
+
+    it "should respond to remember_token attribute" do
+      @user.should respond_to(:remember_token)
+    end
+    
+    it "should set the remember_token attribute" do
+      @user.remember_me!
+      @user.remember_token.should_not be_nil
+    end
+    
+    
+  end # end of remember me tests
+  
 end
 

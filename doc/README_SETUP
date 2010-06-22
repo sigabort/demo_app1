@@ -30,5 +30,13 @@ script/plugin install svn://rubyforge.org/var/svn/gravatarplugin/plugins/gravata
  #Generate integration specs for users
  script/generate integration_spec users
  
+ #Generate controller and related tests, with default methods.
+ # In the following command, generates stuff for Sessions controller 
+ # with a method : new
+ script/generate rspec_controller Sessions new
+
+ 
  #Generate migration script. Add password field to users table
  scrip/generate migration add_password_to_users password:string
+ 
+ 
